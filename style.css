@@ -96,18 +96,52 @@ p { font-size: .95rem; color: var(--muted); line-height: 1.8; }
 }
 .nav__link:hover::after { right: 0; }
 .nav__logo { text-align: center; }
-.logo-text {
-  display: block; font-family: var(--serif); font-size: 1.5rem;
-  letter-spacing: .35em; font-weight: 300; color: var(--cream);
-  transition: color .3s;
+/* Logo wordmark — matches original celestiel branding */
+.logo-wordmark {
+  display: inline-flex;
+  align-items: flex-start;   /* cross aligns to top of word */
+  position: relative;
 }
-.nav.scrolled .logo-text { color: var(--charcoal); }
-.logo-sub {
-  display: block; font-size: .6rem; letter-spacing: .25em;
-  text-transform: uppercase; color: rgba(255,255,255,.5);
+.logo-word {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  letter-spacing: .12em;
+  color: var(--cream);
   transition: color .3s;
+  line-height: 1;
+  display: block;
+}
+.nav.scrolled .logo-word { color: var(--charcoal); }
+.logo-cross {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  margin-left: 2px;
+  margin-top: -1px;   /* floats slightly above the word cap-height */
+  transition: opacity .3s;
+}
+/* On scrolled nav the dark bg is gone — keep cross red (already hardcoded in SVG) */
+.logo-sub {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: lowercase;
+  color: rgba(255,255,255,.45);
+  transition: color .3s;
+  text-align: center;
+  margin-top: .2rem;
+  font-family: var(--sans);
+  font-weight: 300;
 }
 .nav.scrolled .logo-sub { color: var(--muted); }
+
+/* Footer variant — slightly larger wordmark */
+.logo-wordmark--footer .logo-word {
+  font-size: 1.8rem;
+  color: var(--cream); /* always cream in footer */
+}
+.logo-wordmark--footer .logo-cross { width: 15px; height: 15px; }
 .nav__icon { display: flex; color: var(--cream); transition: color .3s; }
 .nav.scrolled .nav__icon { color: var(--charcoal); }
 
@@ -553,7 +587,7 @@ p { font-size: .95rem; color: var(--muted); line-height: 1.8; }
   padding: 5rem 4rem; max-width: 1320px; margin: 0 auto;
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
-.footer__logo { font-family: var(--serif); font-size: 1.6rem; letter-spacing: .3em; color: var(--cream); margin-bottom: 1rem; font-weight: 300; }
+.footer__logo { margin-bottom: 1rem; }
 .footer__brand p { font-size: .85rem; line-height: 1.8; margin-bottom: 1.5rem; }
 .footer__social { display: flex; gap: 1rem; }
 .footer__social a { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); transition: border-color .3s, color .3s; }
